@@ -31,7 +31,7 @@ def api_account_password_retrieve():
         email_code:<str>, 邮件中收到的验证码
         email:<str>, 邮箱
         password:<str>, 新密码
-        password:<str>, 再次确认密码
+        password2:<str>, 再次确认密码
         :return:
     '''
     data = account_password_retrieve()

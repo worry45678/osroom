@@ -180,7 +180,6 @@ def push_to_db(mdb_sys,local_config = None, now_version=None):
         up_version["host_info"] = host_version["host_info"]
     else:
         up_version["disable_update_conf"] = 0
-        host_version["host_info"] = {}
 
     for k,v in host_info.items():
         up_version["host_info"][k] = v
