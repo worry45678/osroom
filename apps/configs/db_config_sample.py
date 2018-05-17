@@ -1,51 +1,51 @@
 # -*-coding:utf-8-*-
 __author__ = "Allen Woo"
 DB_CONFIG = {
+    "mongodb": {
+        "mongo_web": {
+            "username": "work",
+            "dbname": "osr_web",
+            "host": [
+                "127.0.0.1:27017"
+            ],
+            "password": "<Your password>",
+            "config": {
+                "fsync": False,
+                "replica_set": None
+            }
+        },
+        "mongo_user": {
+            "username": "work",
+            "dbname": "osr_user",
+            "host": [
+                "127.0.0.1:27017"
+            ],
+            "password": "<Your password>",
+            "config": {
+                "fsync": False,
+                "replica_set": None
+            }
+        },
+        "mongo_sys": {
+            "username": "work",
+            "dbname": "osr_sys",
+            "host": [
+                "127.0.0.1:27017"
+            ],
+            "password": "<Your password>",
+            "config": {
+                "fsync": False,
+                "replica_set": None
+            }
+        }
+    },
     "redis": {
-        "password": "<Your password>",
+        "port": [
+            "6379"
+        ],
         "host": [
             "127.0.0.1"
         ],
-        "port": [
-            "6379"
-        ]
-    },
-    "mongodb": {
-        "mongo_web": {
-            "password": "<Your password>",
-            "username": "work",
-            "config": {
-                "fsync": False,
-                "replica_set": None
-            },
-            "host": [
-                "127.0.0.1:27017"
-            ],
-            "dbname": "osr_web"
-        },
-        "mongo_user": {
-            "password": "<Your password>",
-            "username": "work",
-            "config": {
-                "fsync": False,
-                "replica_set": None
-            },
-            "host": [
-                "127.0.0.1:27017"
-            ],
-            "dbname": "osr_user"
-        },
-        "mongo_sys": {
-            "password": "<Your password>",
-            "username": "work",
-            "config": {
-                "fsync": False,
-                "replica_set": None
-            },
-            "host": [
-                "127.0.0.1:27017"
-            ],
-            "dbname": "osr_sys"
-        }
+        "password": "<Your password>"
     }
 }
