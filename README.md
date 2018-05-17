@@ -15,7 +15,7 @@ OSROOM基于Python3 Flask + Mongodb3.4+ Redis开发的一个Web系统.
 ### 文档与Demo
 > 官网与文档
 
-官网与文档地址: https:osroom.com
+官网与文档地址: https://osroom.com
 
 > Demo网站
 
