@@ -33,7 +33,7 @@ class WebLogger():
             '''
 
             global _weblog_g
-            _weblog_g = {"log": {}, "user": current_user}
+            _weblog_g = {"log": {}}
             st = time.time()
             _weblog_g["log"]['request_id'] = uuid1()  # "{}{}".format(st, randint(1, 1000000))
             g.weblog_id = _weblog_g["log"]['request_id']
@@ -41,8 +41,8 @@ class WebLogger():
             _weblog_g["log"]['ip'] = request.remote_addr
             _weblog_g["log"]['url'] = request.url
 
-            if not _weblog_g["user"].is_anonymous:
-                _weblog_g["log"]['user_id'] = _weblog_g["user"].id
+            if current_user.is_authenticated:
+                _weblog_g["log"]['user_id'] = current_user.str_id
 
         @app.teardown_request
         def teardown_request_log(exception):
