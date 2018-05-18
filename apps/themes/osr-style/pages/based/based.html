@@ -17,7 +17,11 @@
     <meta name="author" content="OSROOM osroom.com"/>
     {% include "osr-style/pages/based/css.html" %}
     {% include "osr-style/pages/based/top-js.html" %}
+
+    <!--后端设置嵌入代码-->
     {{g.site_global.site_config.HEAD_CODE | safe }}
+    <!--后端设置嵌入代码-->
+
 </head>
 
 {% block body %}
@@ -41,6 +45,9 @@
         <!-- //右侧, 包含页面的导航栏和内容 -->
     </div>
     {% include "osr-style/pages/based/footer-js.html" %}
+    <!--后端设置嵌入代码-->
+    {{g.site_global.site_config.FOOTER_CODE | safe }}
+    <!--后端设置嵌入代码-->
 </body>
 {% endblock %}
 
