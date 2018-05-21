@@ -17,7 +17,8 @@ OSROOM基于Python3 Flask + Mongodb3.4+ Redis开发的一个Web系统.
 
 > Demo网站
 
-Demo网站使用默认简单主题，预装了文件存储插件(用于作为图床)，文本内容检查插件，IP识别地址插件
+Demo网站使用默认简单主题，预装了文件存储插件(用于作为图床)，文本内容检查插件，IP识别地址插件,
+同时支持富文本编辑器与Markdown编辑器
 
 https://demo.osroom.com 
 
