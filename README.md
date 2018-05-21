@@ -10,8 +10,6 @@ OSROOM基于Python3 Flask + Mongodb3.4+ Redis开发的一个Web系统.
 
 目前只在Ubuntu 14.04, 16.04测试过，其余Linux发行版还未测试.
 
-代码更新首发地址: https://github.com/osroom/osroom
-
 ### 文档与Demo
 > 官网与文档
 
