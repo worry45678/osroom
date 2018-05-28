@@ -3,18 +3,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
     {% block _title %}
     <title>{% block title %}{% endblock %}{{g.site_global.site_config.TITLE_SUFFIX}}</title>
     {% endblock %}
     <meta name="description" content="{{g.site_global.site_config.DEFAULT_DESCRIPTION}}">
     <meta name="keywords" content="{{g.site_global.site_config.DEFAULT_KEYWORDS}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <link rel="SHORTCUT ICON" href="{{g.site_global.site_config.FAVICON}}">
     <link rel="apple-touch-icon-precomposed" href="{{g.site_global.site_config.FAVICON}}">
     <meta name="apple-mobile-web-app-title" content="{{g.site_global.site_config.TITLE_SUFFIX}}">
-    <meta name="author" content="OSROOM osroom.com"/>
+    <meta name="author" content="Allen Woo"/>
     {% include "osr-style/pages/based/css.html" %}
     {% include "osr-style/pages/based/top-js.html" %}
 
