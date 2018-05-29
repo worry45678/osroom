@@ -20,7 +20,7 @@
                     </a>
                     {{_("评论了")}}:
                 </span>
-                <a v-if="msg.target_type=='post'" :href="'/user/post/preview?id='+msg.target_id">
+                <a v-if="msg.target_type=='post'" :href="'/post?id='+msg.target_id">
                   {[msg.title]}
                 </a>
                 <!--title-->
