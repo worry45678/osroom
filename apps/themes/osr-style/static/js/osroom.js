@@ -521,14 +521,14 @@ $(function() {
 });
 
 //鼠标划过下拉菜单
-$(function(){
-    var $dropdownLi = $('li.dropdown');
-    $dropdownLi.mouseover(function() {
-        $(this).addClass('open');
-    }).mouseout(function() {
-        $(this).removeClass('open');
-    });
-});
+//$(function(){
+//    var $dropdownLi = $('li.dropdown');
+//    $dropdownLi.mouseover(function() {
+//        $(this).addClass('open');
+//    }).mouseout(function() {
+//        $(this).removeClass('open');
+//    });
+//});
 
 /*
     表单验证, 需要引入bootstrapValidator.min.js先
