@@ -62,7 +62,6 @@ class OsrRequestProcess():
             请求前执行函数
             :return:
             '''
-
             request.c_method = request.method
             if request.path.startswith(api.url_prefix):
                 # 只要是api请求都需要token验证
@@ -117,8 +116,11 @@ class OsrRequestProcess():
         lans = list(get_config('babel', 'LANGUAGES').keys())
         if request.headers.get('OSR-RestToken'):
             # RestToken验证请求如果未设置session保存语言, 则使用请求头AcceptLanguges中设置的
-            return rest_session.get("language", request.accept_languages.best_match(lans))
+            lan = rest_session.get("language", request.accept_languages.best_match(lans))
         else:
             # 普通浏览器客户端, 获取当session中保存的设置
-            return session.get("language", request.accept_languages.best_match(lans))
+            lan = session.get("language", request.accept_languages.best_match(lans))
+        if not lan:
+            lan = "zh_CN"
+        return lan
 
