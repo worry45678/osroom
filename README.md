@@ -1,7 +1,7 @@
 
 <div align=center><img width="auto" height="50" src="https://raw.githubusercontent.com/osroom/osroom/master/apps/static/sys_imgs/osroom-logo.png" alt="osroom"/></div>
 
-> 目前处于公测版本
+> 目前处于公测版本（各官方网站已下线，等待HiWoo有钱付服务器费用再启动）
 
 ## OSRoom 开源Web系统
 OSROOM基于Python3 Flask + Mongodb3.4+ Redis开发的一个Web系统.
