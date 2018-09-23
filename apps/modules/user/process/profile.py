@@ -81,7 +81,7 @@ def profile_update():
         if not s:
             return {"msg":r, "msg_type":"w", "http_status":403}
 
-    s,r = short_str_verifi(s=info, allow_special_chart=True)
+    s,r = short_str_verifi( short_str=info, allow_special_chart=True)
     if not s:
         data = {'msg': r,'msg_type': "w", "http_status": 400}
         return data

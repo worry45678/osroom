@@ -520,14 +520,14 @@ $(function() {
 });
 
 //鼠标划过下拉菜单
-$(function(){
-    var $dropdownLi = $('li.dropdown');
-    $dropdownLi.mouseover(function() {
-        $(this).addClass('open');
-    }).mouseout(function() {
-        $(this).removeClass('open');
-    });
-});
+//$(function(){
+//    var $dropdownLi = $('li.dropdown');
+//    $dropdownLi.mouseover(function() {
+//        $(this).addClass('open');
+//    }).mouseout(function() {
+//        $(this).removeClass('open');
+//    });
+//});
 
 
 /*

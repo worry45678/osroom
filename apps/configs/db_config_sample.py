@@ -2,50 +2,50 @@
 __author__ = "Allen Woo"
 DB_CONFIG = {
     "mongodb": {
-        "mongo_web": {
-            "username": "work",
-            "dbname": "osr_web",
-            "host": [
-                "127.0.0.1:27017"
-            ],
-            "password": "<Your password>",
-            "config": {
-                "fsync": False,
-                "replica_set": None
-            }
-        },
-        "mongo_user": {
-            "username": "work",
-            "dbname": "osr_user",
-            "host": [
-                "127.0.0.1:27017"
-            ],
-            "password": "<Your password>",
-            "config": {
-                "fsync": False,
-                "replica_set": None
-            }
-        },
         "mongo_sys": {
-            "username": "work",
+            "username": "root",
+            "config": {
+                "fsync": False,
+                "replica_set": None
+            },
+            "password": "<Your password>",
             "dbname": "osr_sys",
             "host": [
                 "127.0.0.1:27017"
-            ],
-            "password": "<Your password>",
+            ]
+        },
+        "mongo_user": {
+            "username": "root",
             "config": {
                 "fsync": False,
                 "replica_set": None
-            }
+            },
+            "password": "<Your password>",
+            "dbname": "osr_user",
+            "host": [
+                "127.0.0.1:27017"
+            ]
+        },
+        "mongo_web": {
+            "username": "root",
+            "config": {
+                "fsync": False,
+                "replica_set": None
+            },
+            "password": "<Your password>",
+            "dbname": "osr_web",
+            "host": [
+                "127.0.0.1:27017"
+            ]
         }
     },
     "redis": {
+        "password": "<Your password>",
         "port": [
             "6379"
         ],
         "host": [
             "127.0.0.1"
-        ],
-        "password": "<Your password>"
+        ]
     }
 }

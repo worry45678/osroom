@@ -112,11 +112,11 @@ def internal_server_error(e):
         return response_format(data)
     else:
         g.site_global = dict(g.site_global, **get_global_site_data(req_type="view"))
-        path = "{}/pages/{}.html".format(get_config("theme", "CURRENT_THEME_NAME"), e.code)
+        path = "{}/pages/{}.html".format(get_config("theme", "CURRENT_THEME_NAME"), code)
         absolute_path = os.path.abspath("{}/{}".format(theme_view.template_folder, path))
         if not os.path.isfile(absolute_path):
             # 主题不存在<e.code>错误页面(如404页面),使用系统自带的页面
-            path = "{}/module/exception/{}.html".format(admin_view.template_folder, e.code)
+            path = "{}/module/exception/{}.html".format(admin_view.template_folder, code)
             return render_absolute_path_template(path, data=data), 404
 
-        return render_template(path, data=data), e.code
+        return render_template(path, data=data), code

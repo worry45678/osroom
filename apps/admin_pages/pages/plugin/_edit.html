@@ -94,7 +94,8 @@
                   </td>
                     <!--其他-->
                   <td width="300px" v-if="conf.value_type!='bool' && conf.value_type!='password' && conf.value_type!='list' && conf.value_type!='dict' " class="form-group" >
-                      <input class="form-control osr-input" type="text" v-model="conf.value" >
+                      <textarea v-if="conf.value && conf.value.length>15" class="form-control osr-input" v-model="conf.value"></textarea>
+                      <input v-else class="form-control osr-input" type="text" v-model="conf.value" >
 
                   </td>
                   <!--//编辑区域-->

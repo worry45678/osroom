@@ -1,7 +1,7 @@
 
 <div align=center><img width="auto" height="50" src="https://raw.githubusercontent.com/osroom/osroom/master/apps/static/sys_imgs/osroom-logo.png" alt="osroom"/></div>
 
-> 目前处于测试中... 还未发布公测版本
+> 目前处于公测版本（各官方网站已下线，等待HiWoo有钱付服务器费用再启动）
 
 ## OSRoom 开源Web系统
 OSROOM基于Python3 Flask + Mongodb3.4+ Redis开发的一个Web系统.
@@ -10,18 +10,19 @@ OSROOM基于Python3 Flask + Mongodb3.4+ Redis开发的一个Web系统.
 
 目前只在Ubuntu 14.04, 16.04测试过，其余Linux发行版还未测试.
 
-代码更新首发地址: https://github.com/osroom/osroom
-
 ### 文档与Demo
 > 官网与文档
 
-编写预热中...
+长期可访问文档地址: https://osroom.github.io/osroom-doc/
+
+官网与文档地址: https://osroom.com (由于个人问题，比如穷，该站可能已下线))
 
 > Demo网站
 
-Demo网站使用默认简单主题，预装了文件存储插件(用于作为图床)，文本内容检查插件，IP识别地址插件
+Demo网站使用默认简单主题，预装了文件存储插件(用于作为图床)，文本内容检查插件，IP识别地址插件,
+同时支持富文本编辑器与Markdown编辑器
 
-https://demo.osroom.com 
+https://demo.osroom.com (由于个人问题，比如穷，该站可能已下线)
 
 Demo网站内部有提供管理员账户和密码，可自己在Demo站点注册账户使用
 
