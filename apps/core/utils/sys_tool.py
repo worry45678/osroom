@@ -180,7 +180,7 @@ def add_user(mdb_user):
     print('Username: {}\nEmail: {}\nUser role: {}\nPassword: {}'.format(username, email, role["name"], hidden_password))
     print('End')
 
-def update_pylib(input_venv_path = True):
+def update_pylib(input_venv_path = True, latest=False):
 
     '''
     更新python环境库
@@ -210,7 +210,7 @@ def update_pylib(input_venv_path = True):
     else:
         venv = ""
 
-    print(" * Update pip...")
+    print(" * Update pip...({})".format(venv))
     s, r = subprocess.getstatusoutput("{}pip3 install -U pip".format(venv))
     print(r)
 
@@ -237,13 +237,17 @@ def update_pylib(input_venv_path = True):
 
     install_failed = []
     for sf in install_list:
-        print(venv, sf)
-        s, r = subprocess.getstatusoutput("{}pip3 install -U {}".format(venv, sf))
+        if latest:
+            sf = sf.split("==")[0]
+        print("pip install -U {}".format(sf))
+        s, r = subprocess.getstatusoutput("{}pip install -U {}".format(venv, sf))
         if s:
             install_failed.append(sf)
 
     for sf in install_failed:
-        s, r = subprocess.getstatusoutput("{}pip3 install -U {}".format(venv, sf))
+        if latest:
+            sf = sf.split("==")[0]
+        s, r = subprocess.getstatusoutput("{}pip install -U {}".format(venv, sf))
         if not s:
             install_failed.remove(sf)
     if install_failed:
@@ -254,7 +258,7 @@ def update_pylib(input_venv_path = True):
         web_start_log.info(install_failed)
 
     # 查找需要卸载的包
-    s,r = subprocess.getstatusoutput("{}pip3 freeze".format(venv))
+    s,r = subprocess.getstatusoutput("{}pip freeze".format(venv))
     old_reqs = r.split()
     ret_list = list(set(new_reqs)^set(old_reqs))
     uninstall_list = []
@@ -273,3 +277,6 @@ def update_pylib(input_venv_path = True):
         if not input_venv_path:
             web_start_log.info(msg)
             web_start_log.info(uninstall_list)
+
+    if latest:
+        subprocess.getstatusoutput("{}pip freeze > {}/requirements.txt".format(venv, PROJECT_PATH))
