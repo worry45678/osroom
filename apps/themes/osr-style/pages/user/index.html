@@ -2,7 +2,7 @@
 {% block title %}{{_("主页")}}-{% endblock %}
 {% block content %}
 <data id="user_id"  content="{{data.id}}"></data>
-<div id="app" class="row osr-page">
+<div id="app" class="row osr-page" v-cloak>
     <section class="osr-panel">
         <div class="col-sm-9">
             {% include 'osr-style/pages/user/_user_info.html' %}
@@ -11,8 +11,8 @@
                     <i class="fa fa-bar-chart-o"></i> {[posts.data_total]}{{_("篇")}}
                 </strong>
                 <!--去到待处理页面的回收站-->
-                <a id="pt" class="pull-right osr-color-success" v-if="is_myself"
-                    :href="'/user/post/pending?id='+user._id+'&state=recycle'">
+                <a id="pt" class="pull-right osr-color-success"    v-if="is_myself"
+                    :href="'/user/post/pending?id='+user._id+'&state=recycle'" >
                     {{_("待处理")}} <i class="fa fa-chevron-right"></i>
                 </a>
             </p>

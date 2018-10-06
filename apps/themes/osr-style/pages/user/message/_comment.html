@@ -1,11 +1,11 @@
 <!--消息是评论-->
-<ul v-if="type=='comment'" class="osr-list-group">
+<ul   v-if="type=='comment'" class="osr-list-group">
     <li class="osr-list-group-item" v-for="msg in msgs.datas">
       <div class="item-content">
           <header>
               <!--谁回复了评论-->
               <b class="osr-color-success">[{{_("评论")}}]</b>
-                <span v-if="msg.content.reply_id">
+                <span   v-if="msg.content.reply_id">
 
                     <a class="osr-color-secondary" :href="'/user?id='+msg.content.user_id">
                         @{[msg.content.username]}
@@ -14,17 +14,17 @@
                 </span>
 
                 <!--谁评论了-->
-                <span v-else>
+                <span  v-else>
                     <a class="osr-color-secondary" :href="'/user?id='+msg.content.user_id">
                         @{[msg.content.username]}
                     </a>
                     {{_("评论了")}}:
                 </span>
-                <a v-if="msg.target_type=='post'" :href="'/post?id='+msg.target_id">
+                <a   v-if="msg.target_type=='post'" :href="'/post?id='+msg.target_id">
                   {[msg.title]}
                 </a>
                 <!--title-->
-                <span v-else class="text-info">
+                <span  v-else class="text-info">
                     {[msg.title]}
                 </span>
           </header>

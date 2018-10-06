@@ -39,10 +39,10 @@
           <div>
               <div class="pull-left">
                     <!--评论点赞-->
-                  <span class="osr-pointer" v-if="ct.like_it_already" :id="ct._id" data-toggle="tooltip" title="{{_('预览页面, 不能点赞')}}">
+                  <span class="osr-pointer"   v-if="ct.like_it_already" :id="ct._id" data-toggle="tooltip" title="{{_('预览页面, 不能点赞')}}">
                      <i class="fa fa-thumbs-up osr-color-danger"></i> {[ct.like]}
                   </span>
-                  <span class="osr-pointer" :id="ct._id" v-else data-toggle="tooltip" title="{{_('预览页面, 不能点赞')}}">
+                  <span class="osr-pointer" :id="ct._id"  v-else data-toggle="tooltip" title="{{_('预览页面, 不能点赞')}}">
                      <i class="fa fa-thumbs-o-up osr-color-danger"></i> {[ct.like]}
                   </span>
               </div>
@@ -61,7 +61,7 @@
             <!--２级评论-->
             <ul class="osr-list-group-lv2">
                 <li v-for="(treply, tindex) in ct.reply" class="osr-list-group-item-lv2">
-                    <hr v-if="tindex!=0" class="osr-hr">
+                    <hr   v-if="tindex!=0" class="osr-hr">
                     <header>
                         <strong>
                             <a :href="'/user?id='+treply.user_id">{[treply.username]}</a>
@@ -118,16 +118,16 @@
 <!-- 页面导航-->
 <div class="text-center visible-lg visible-md">
     <ul class="pagination">
-        <li v-if="pages.last < pages.current_page && pages.last>0">
+        <li   v-if="pages.last < pages.current_page && pages.last>0">
             <a v-on:click="get_comment(sort, pages.last)">«</a>
         </li>
-        <li v-else class="disabled">
+        <li  v-else class="disabled">
             <a>«</a>
         </li>
 
         <li v-for="page in pages.last_show" >
-            <a v-if="page!='...'" v-on:click="get_comment(sort, page)">{[page]}</a>
-            <a v-else href="#">...</a>
+            <a   v-if="page!='...'" v-on:click="get_comment(sort, page)">{[page]}</a>
+            <a  v-else href="#">...</a>
         </li>
 
         <li class="active">
@@ -135,14 +135,14 @@
         </li>
 
        <li v-for="page in pages.next_show" >
-            <a v-if="page!='...'" v-on:click="get_comment(sort, page)" >{[page]}</a>
-            <a v-else href="#">...</a>
+            <a   v-if="page!='...'" v-on:click="get_comment(sort, page)" >{[page]}</a>
+            <a  v-else href="#">...</a>
        </li>
 
-       <li v-if="pages.next > pages.current_page && pages.next<=pages.page_total">
+       <li   v-if="pages.next > pages.current_page && pages.next<=pages.page_total">
             <a v-on:click="get_comment(sort, pages.next)">»</a>
         </li>
-        <li v-else class="disabled">
+        <li  v-else class="disabled">
             <a>»</a>
         </li>
     </ul>
@@ -150,12 +150,12 @@
 <!-- //页面导航-->
 <!-- m页面导航-->
 <ul class="pager visible-xs visible-sm">
-    <li v-if="pages.last < pages.current_page && pages.last>0" class="previous">
+    <li   v-if="pages.last < pages.current_page && pages.last>0" class="previous">
         <a v-on:click="get_comment(sort, pages.last)">
             {{_("上一页")}}
         </a>
     </li>
-    <li v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
+    <li   v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
         <a v-on:click="get_comment(sort, pages.next)">{{_("下一页")}}</a>
         </li>
 </ul>

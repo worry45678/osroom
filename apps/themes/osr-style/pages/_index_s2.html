@@ -1,5 +1,5 @@
 <!--文章列表-->
-<div class="col-md-8">
+<div class="col-md-8" v-cloak>
     <!--文章导航-->
      <header class="panel-heading tab-bg-dark-navy-blue osr-panel-heading">
         <ul class="nav nav-tabs">
@@ -18,7 +18,7 @@
     <ul class="osr-list-group">
 
         <!--推荐位2-->
-        <li v-if="rec_2" class="osr-list-group-item have-img">
+        <li  v-if="rec_2" class="osr-list-group-item have-img">
              <!-- 广告图片-->
                <a class="wrap-img pull-right" target="_blank" :href="rec_2.link">
                    <span class="osr-img-tag">
@@ -26,7 +26,7 @@
                           {[rec_2.category]}
                       </span>
                     </span>
-                  <img v-if="rec_2.url"  style="height:100%;width:100%" v-bind:src="rec_2.url+img_w_h" alt="rec cover">
+                  <img  v-if="rec_2.url"  style="height:100%;width:100%" v-bind:src="rec_2.url+img_w_h" alt="rec cover">
               </a>
              <!-- //图片-->
               <div class="item-content">
@@ -51,14 +51,14 @@
              <!-- 文章图片-->
                <a class="wrap-img pull-right" target="_blank" :href="'/post?id='+post._id">
                    <span class="osr-img-tag">
-                      <span  v-if="post.category_name" class="badge badge-info">
+                      <span   v-if="post.category_name" class="badge badge-info">
                           {[post.category_name]}
                       </span>
-                      <span  v-else class="badge badge-info">
+                      <span   v-else class="badge badge-info">
                           {{_('默认文集')}}
                       </span>
                     </span>
-                  <img v-if="post.cover_url"  style="height:100%;width:100%" v-bind:src="post.cover_url+img_w_h" alt="post cover">
+                  <img  v-if="post.cover_url"  style="height:100%;width:100%" v-bind:src="post.cover_url+img_w_h" alt="post cover">
               </a>
              <!-- //文章图片-->
               <div class="item-content">
@@ -67,13 +67,13 @@
                           <img class="osr-img-circle-b" width="30px" height="30px" v-bind:src="post.user.avatar_url.url" alt="{{_('头像')}}">
                           &nbsp;{[post.user.username]}
                       </a>
-                      <span v-if="post.user.gender=='m'" class="fa fa-mars osr-fa-gender-m" ></span>
-                      <span v-if="post.user.gender=='f'" class="fa fa-venus osr-fa-gender-f"></span>
+                      <span  v-if="post.user.gender=='m'" class="fa fa-mars osr-fa-gender-m" ></span>
+                      <span  v-if="post.user.gender=='f'" class="fa fa-venus osr-fa-gender-f"></span>
                       <span class="osr-date">
-                           <span v-if="post.issue_time" >
+                           <span  v-if="post.issue_time" >
                               <i class="fa fa-clock-o"></i>&nbsp;{[post.issue_time | formatDate]}
                           </span>
-                          <span v-else>
+                          <span  v-else>
                               <i class="fa fa-refresh" title="{{_('更新时间')}}"></i>
                               <i class="fa fa-clock-o"></i>&nbsp;{[post.update_time | formatDate]}
                           </span>
@@ -104,10 +104,10 @@
  <!-- 页面导航-->
     <div class="row text-center" style="padding-bottom:30px;">
         <div class="btn-group ">
-            <button v-if="pages.next > pages.current_page  && pages.next<=pages.page_total"  class="btn osr-btn btn-success" v-on:click="get_posts(pages.next, sort)">
+            <button  v-if="pages.next > pages.current_page  && pages.next<=pages.page_total"  class="btn osr-btn btn-success" v-on:click="get_posts(pages.next, sort)">
                 {{_("查看更多")}}
             </button>
-            <button v-else  class="btn osr-btn btn-success" disabled>
+            <button  v-else  class="btn osr-btn btn-success" disabled>
                 {{_("我也是有底线的")}}
             </button>
         </div>
@@ -121,8 +121,8 @@
     <div v-for="rec in rec_3" >
         <div class="text-center">
             <a :href="rec.link" target="_blank" class="text-success" style="font-size:25px;">
-                <span v-if="rec.title">{[rec.title]}</span>
-                <div v-if="rec.text" v-html="rec.text_html"></div>
+                <span  v-if="rec.title">{[rec.title]}</span>
+                <div  v-if="rec.text" v-html="rec.text_html"></div>
             </a>
         </div>
     </div>
@@ -131,12 +131,12 @@
     <div v-for="rec in rec_4" >
         <hr>
         <div class="text-center" >
-            <a v-if="rec.link_open_new_tab" :href="rec.link" target="_blank">
+            <a  v-if="rec.link_open_new_tab" :href="rec.link" target="_blank">
                 <p class="osr-text">{[rec.title]}</p>
                 <img :src="rec.url" class="osr-side-img">
                 <div v-html="rec.text_html"></div>
             </a>
-            <a v-else :href="rec.link">
+            <a  v-else :href="rec.link">
                 <p class="osr-text">{[rec.title]}</p>
                 <img :src="rec.url" class="osr-side-img">
                 <div v-html="rec.text_html"></div>

@@ -1,19 +1,19 @@
 <!--消息是其他-->
-<ul v-if="type=='notice'" class="osr-list-group">
+<ul   v-if="type=='notice'" class="osr-list-group">
     <li class="osr-list-group-item" v-for="msg in msgs.datas">
       <div class="item-content">
           <header>
-              <b v-if="msg.label=='audit_failure'" class="osr-color-danger">
+              <b   v-if="msg.label=='audit_failure'" class="osr-color-danger">
                   [{{_("审核未通过")}}]
              </b>
-              <b v-else class="text-info">
+              <b  v-else class="text-info">
                   [{{_("通知")}}]
               </b>
 
-              <a v-if="msg.target_type=='post'" :href="'/user/post/preview?id='+msg.target_id">
+              <a   v-if="msg.target_type=='post'" :href="'/user/post/preview?id='+msg.target_id">
                   {[msg.title]}
               </a>
-              <span v-else>{[msg.title]}</span>
+              <span  v-else>{[msg.title]}</span>
 
           </header>
 

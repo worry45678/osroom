@@ -1,9 +1,9 @@
 {% extends "osr-style/pages/based/based.html" %}
 {% block title %}{{_("平台协议")}}-{% endblock %}
 {% block content %}
-<div id="app" class="row osr-edit-page">
+<div id="app" class="row osr-edit-page" v-cloak>
     <section class="osr-panel article">
-        <header v-if="name!='demo_use_agreement'" class="panel-heading tab-bg-dark-navy-blue osr-panel-heading">
+        <header  v-if="name!='demo_use_agreement'" class="panel-heading tab-bg-dark-navy-blue osr-panel-heading">
             <ul class="nav nav-tabs">
                 <li id="head_li_user_agreement">
                     <a data-toggle="tab" class="osr-pointer" v-on:click='get_global("user_agreement")'>

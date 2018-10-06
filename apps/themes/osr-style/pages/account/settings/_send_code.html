@@ -18,7 +18,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title">{{_("发送验证码")}}</h4>
             </div>
-            <div v-if="img_code_url" class="modal-body text-center" >
+            <div  v-if="img_code_url" class="modal-body text-center" >
                 <div class="form-group">
                   <input name="code" type="text" v-model="img_code" class="text-center form-control osr-input"
                    placeholder="{{_('图片验证码')}}"

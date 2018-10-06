@@ -55,10 +55,10 @@
           <div>
               <div class="pull-left">
                     <!--评论点赞-->
-                  <span class="osr-pointer" v-if="ct.like_it_already" :id="ct._id" v-on:click="ct_like(ct._id, index)">
+                  <span class="osr-pointer"  v-if="ct.like_it_already" :id="ct._id" v-on:click="ct_like(ct._id, index)" >
                      <i class="fa fa-thumbs-up osr-color-danger"></i> {[ct.like]}
                   </span>
-                  <span class="osr-pointer" :id="ct._id" v-else v-on:click="ct_like(ct._id, index)">
+                  <span class="osr-pointer" :id="ct._id"  v-else v-on:click="ct_like(ct._id, index)">
                      <i class="fa fa-thumbs-o-up osr-color-danger"></i> {[ct.like]}
                   </span>
                   &nbsp;
@@ -75,12 +75,12 @@
               <div class="pull-right osr-date">
 
                   <!--删除-->
-                    <a v-if="ct.user_id==loged_user"  v-on:click="warning_modal(null, 'del_comment', ct._id, index)" class="osr-color-danger osr-pointer">
+                    <a  v-if="ct.user_id==loged_user"  v-on:click="warning_modal(null, 'del_comment', ct._id, index)" class="osr-color-danger osr-pointer" >
                         {{_('删除')}}
                     </a>
                   <!--//删除-->
 
-                    <span  v-else v-on:click="ready_inform_ct(ct)" class="osr-pointer" data-toggle="modal" data-target="#comment-inform">
+                    <span   v-else v-on:click="ready_inform_ct(ct)" class="osr-pointer" data-toggle="modal" data-target="#comment-inform">
                         {{_("举报")}}
                     </span>&nbsp;
 
@@ -112,7 +112,7 @@
             <!--２级评论-->
             <ul class="osr-list-group-lv2">
                 <li v-for="(treply, tindex) in ct.reply" class="osr-list-group-item-lv2">
-                    <hr v-if="tindex!=0" class="osr-hr">
+                    <hr  v-if="tindex!=0" class="osr-hr" >
                     <header>
                         <strong>
                             <a :href="'/user?id='+treply.user_id">{[treply.username]}</a>
@@ -140,13 +140,13 @@
                      <div class="pull-right osr-date">
 
                          <!--删除-->
-                            <a v-if="treply.user_id==loged_user"  v-on:click="warning_modal(null, 'del_comment', treply._id, index, tindex)"
-                               class="osr-color-danger osr-pointer">
+                            <a  v-if="treply.user_id==loged_user"  v-on:click="warning_modal(null, 'del_comment', treply._id, index, tindex)"
+                               class="osr-color-danger osr-pointer" >
                                 {{_('删除')}}
                             </a>
                           <!--//删除-->
 
-                        <span v-else v-on:click="ready_inform_ct(treply)" class="osr-pointer" data-toggle="modal" data-target="#comment-inform">
+                        <span  v-else v-on:click="ready_inform_ct(treply)" class="osr-pointer" data-toggle="modal" data-target="#comment-inform">
                             {{_("举报")}}
                         </span>&nbsp;
 
@@ -207,16 +207,16 @@
 <!-- 页面导航-->
 <div class="text-center visible-lg visible-md">
     <ul class="pagination">
-        <li v-if="pages.last < pages.current_page && pages.last>0">
+        <li  v-if="pages.last < pages.current_page && pages.last>0" >
             <a v-on:click="get_comment(sort, pages.last)">«</a>
         </li>
-        <li v-else class="disabled">
+        <li  v-else class="disabled">
             <a>«</a>
         </li>
 
         <li v-for="page in pages.last_show" >
-            <a v-if="page!='...'" v-on:click="get_comment(sort, page)">{[page]}</a>
-            <a v-else href="#">...</a>
+            <a  v-if="page!='...'" v-on:click="get_comment(sort, page)" >{[page]}</a>
+            <a  v-else href="#">...</a>
         </li>
 
         <li class="active">
@@ -224,14 +224,14 @@
         </li>
 
        <li v-for="page in pages.next_show" >
-            <a v-if="page!='...'" v-on:click="get_comment(sort, page)" >{[page]}</a>
-            <a v-else href="#">...</a>
+            <a  v-if="page!='...'" v-on:click="get_comment(sort, page)" >{[page]}</a>
+            <a  v-else href="#">...</a>
        </li>
 
-       <li v-if="pages.next > pages.current_page && pages.next<=pages.page_total">
+       <li  v-if="pages.next > pages.current_page && pages.next<=pages.page_total" >
             <a v-on:click="get_comment(sort, pages.next)">»</a>
         </li>
-        <li v-else class="disabled">
+        <li  v-else class="disabled">
             <a>»</a>
         </li>
     </ul>
@@ -239,12 +239,12 @@
 <!-- //页面导航-->
 <!-- m页面导航-->
 <ul class="pager visible-xs visible-sm">
-    <li v-if="pages.last < pages.current_page && pages.last>0" class="previous">
+    <li  v-if="pages.last < pages.current_page && pages.last>0" class="previous" >
         <a v-on:click="get_comment(sort, pages.last)">
             {{_("上一页")}}
         </a>
     </li>
-    <li v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
+    <li  v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next" >
         <a v-on:click="get_comment(sort, pages.next)">{{_("下一页")}}</a>
         </li>
 </ul>

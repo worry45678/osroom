@@ -2,7 +2,7 @@
 {% block title %}{{_("插件设置")}}{{data.plugin}}-{% endblock %}
 {% block content %}
 <data id="plugin" content="{{data.plugin}}"></data>
-<div id="app" class="row">
+<div v-cloak id="app" class="row">
     <div class="col-md-12">
         <ul class="breadcrumb">
             <li><a href="/osr-admin/plugin?page={{data.from_page}}"><i class="fa fa-plug"></i> {{_("插件管理")}}</a></li>

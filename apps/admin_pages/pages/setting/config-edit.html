@@ -3,7 +3,7 @@
 {% block content %}
 <data id="project" content="{{data.project}}"></data>
 <data id="keyword" content="{{data.keyword}}"></data>
-<div id="app" class="row">
+<div v-cloak id="app" class="row">
     <div class="col-md-12">
         <ul class="breadcrumb">
             <li><a href="/osr-admin/setting/configs?page={{data.from_page}}"><i class="fa fa-cogs"></i> {{_("配置管理")}}</a></li>

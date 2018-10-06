@@ -2,7 +2,7 @@
 {% block title %}{{_("摄影")}}-{% endblock %}
 {% block content %}
 <data id="category" content="{{data.category}}"></data>
-<div id="app" >
+<div id="app" v-cloak>
     <div class="row osr-page">
             <div class="col-xs-12">
                  <header class="panel-heading tab-bg-dark-navy-blue osr-panel-heading">
@@ -25,10 +25,10 @@
                     <div  v-for="(media, index) in photos.datas" class="osr-img-list osr-pointer col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <img class="osr-media-img" :src="media.url+img_w_h" :alt="media.title"
                              :data-original="media.url" v-on:click="init_viewer()">
-                         <div v-if="media.title" class="img-title osr-text-overleft"  data-toggle="tooltip" :title="media.title">
+                         <div  v-if="media.title" class="img-title osr-text-overleft"  data-toggle="tooltip" :title="media.title">
                              {[media.title]}
                          </div>
-                        <div v-else class="img-title">&nbsp;</div>
+                        <div  v-else class="img-title">&nbsp;</div>
                         <span class="osr-date">
                             <i class="fa fa-exclamation-circle"
                                data-toggle="tooltip" title="{{_('版权归原作者所有,与本站无关.如果侵权,请联系本站删除!')}}" ></i>
@@ -43,16 +43,16 @@
                 <!-- 页面导航-->
                 <div class="text-center visible-lg visible-md">
                     <ul class="pagination">
-                        <li v-if="pages.last < pages.current_page && pages.last>0">
+                        <li  v-if="pages.last < pages.current_page && pages.last>0">
                             <a class="osr-pointer" v-on:click="get_global(pages.last, current_category)">«</a>
                         </li>
-                        <li v-else class="disabled">
+                        <li  v-else class="disabled">
                             <a>«</a>
                         </li>
 
                         <li v-for="page in pages.last_show" >
-                            <a class="osr-pointer" v-if="page!='...'" v-on:click="get_global(page, current_category)">{[page]}</a>
-                            <a v-else href="#">...</a>
+                            <a class="osr-pointer"  v-if="page!='...'" v-on:click="get_global(page, current_category)">{[page]}</a>
+                            <a  v-else href="#">...</a>
                         </li>
 
                         <li class="active">
@@ -60,14 +60,14 @@
                         </li>
 
                        <li v-for="page in pages.next_show" >
-                            <a class="osr-pointer" v-if="page!='...'" v-on:click="get_global(page, current_category)" >{[page]}</a>
-                            <a v-else href="#">...</a>
+                            <a class="osr-pointer"  v-if="page!='...'" v-on:click="get_global(page, current_category)" >{[page]}</a>
+                            <a  v-else href="#">...</a>
                        </li>
 
-                       <li v-if="pages.next > pages.current_page && pages.next<=pages.page_total">
+                       <li  v-if="pages.next > pages.current_page && pages.next<=pages.page_total">
                             <a class="osr-pointer" v-on:click="get_global(pages.next, current_category)">»</a>
                         </li>
-                        <li v-else class="disabled">
+                        <li  v-else class="disabled">
                             <a>»</a>
                         </li>
                     </ul>
@@ -76,13 +76,13 @@
 
                  <!-- m页面导航-->
                 <ul class="pager col-sm-12 visible-xs visible-sm">
-                    <li v-if="pages.last < pages.current_page && pages.last>0" class="previous">
+                    <li  v-if="pages.last < pages.current_page && pages.last>0" class="previous">
                         <a v-on:click="get_global(pages.last, current_category)" class="osr-pointer">
                             {{_("上一页")}}
                         </a>
                     </li>
                      <span class="text-center osr-text">{{_('第{[photos.current_page]}页/共{[photos.page_total]}页')}}</span>
-                    <li v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
+                    <li  v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
                         <a v-on:click="get_global(pages.next, current_category)" class="osr-pointer">
                             {{_("下一页")}}
                         </a>

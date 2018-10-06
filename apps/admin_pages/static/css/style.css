@@ -5,6 +5,8 @@
     Core: General style
 ----------------------------
 */
+/*防止闪现原代码*/
+[v-cloak] { display: none }
 a {
   color: #3c8dbc;
 }

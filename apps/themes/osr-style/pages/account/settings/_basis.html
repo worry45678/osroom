@@ -25,10 +25,10 @@
             <label >
                 {{_('个性域')}}
             </label>&nbsp;
-            <span v-if="user_profile.custom_domain != -1" class="osr-color-success">{[user_profile.custom_domain]}</span>
-            <a v-else-if="!input_domain && user_profile.custom_domain == -1" v-on:click="ready_add_domain()"> {{_('添加')}}</a>
-            <a v-else-if="input_domain"v-on:click="ready_add_domain()"> {{_('取消')}}</a>
-            <input name="domain" class="form-control osr-input" v-if="input_domain" type="text" minlength="4" v-model="user_profile.custom_domain"
+            <span  v-if="user_profile.custom_domain != -1" class="osr-color-success">{[user_profile.custom_domain]}</span>
+            <a   v-else-if="!input_domain && user_profile.custom_domain == -1" v-on:click="ready_add_domain()"> {{_('添加')}}</a>
+            <a   v-else-if="input_domain"v-on:click="ready_add_domain()"> {{_('取消')}}</a>
+            <input name="domain" class="form-control osr-input"  v-if="input_domain" type="text" minlength="4" v-model="user_profile.custom_domain"
               placeholder="{{_('保存后不能修改')}}"
               data-bv-notempty-message="{{_('用户名不能为空')}}"
               pattern="[a-zA-Z0-9]+"
@@ -39,17 +39,17 @@
         <div class="form-group form-inline">
             <label class="control-label">{{_('编辑器')}}&nbsp;</label>
             <div class="radio radio-success">
-                <input v-if="user_profile.editor=='markdown'" id="markdown" class="form-radio-input" type="radio" name="editor"
+                <input  v-if="user_profile.editor=='markdown'" id="markdown" class="form-radio-input" type="radio" name="editor"
                        v-model="user_profile.editor" value="markdown" checked>
-                <input v-else id="markdown" class="form-radio-input" type="radio" name="editor"
+                <input  v-else id="markdown" class="form-radio-input" type="radio" name="editor"
                        v-model="user_profile.editor" value="markdown">
                 <label class="form-radio-label" for="markdown"> {{_("Markdown")}} </label>
             </div>
             &nbsp;&nbsp;
             <div class="radio radio-success">
-                <input v-if="user_profile.editor=='rich_text'" id="rich_text" class="form-radio-input" type="radio" name="editor"
+                <input  v-if="user_profile.editor=='rich_text'" id="rich_text" class="form-radio-input" type="radio" name="editor"
                        v-model="user_profile.editor" value="rich_text" checked>
-                <input v-else id="rich_text" class="form-radio-input" type="radio" name="editor"
+                <input  v-else id="rich_text" class="form-radio-input" type="radio" name="editor"
                        v-model="user_profile.editor" value="rich_text">
                 <label class="form-radio-label" for="rich_text"> {{_("富文本")}} </label>
             </div>
@@ -64,14 +64,14 @@
         </div>
           <div class="form-group">
             <label>{{_('手&nbsp;&nbsp;&nbsp;&nbsp;机')}}</label>&nbsp;&nbsp;
-            <span v-if="user_profile.mphone_num">
+            <span  v-if="user_profile.mphone_num">
                 {[user_profile.mphone_num.slice(0,3)]}****{[user_profile.mphone_num.slice(-4)]}
             </span>
-            <span v-else>{{_("无")}}</span>
+            <span  v-else>{{_("无")}}</span>
 
             <a class="btn osr-btn btn-xs btn-success" href="/account/settings/mphone">
-                <span v-if="user_profile.mphone_num" >{{_('修改')}}</span>
-                <span v-else >{{_('添加')}}</span>
+                <span  v-if="user_profile.mphone_num" >{{_('修改')}}</span>
+                <span  v-else >{{_('添加')}}</span>
             </a>
         </div>
         <div  class="form-group">

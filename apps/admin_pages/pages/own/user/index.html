@@ -2,7 +2,7 @@
 {% block title %}{{_("主页")}}-{% endblock %}
 {% block content %}
 <data id="user_id"  content="{{data.id}}"></data>
-<div id="app" class="row osr-page">
+<div v-cloak id="app" class="row osr-page">
     <section class="osr-panel">
         <div class="col-sm-9">
             {% include 'own/user/_user_info.html' %}

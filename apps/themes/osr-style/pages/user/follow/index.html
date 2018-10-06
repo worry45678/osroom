@@ -1,7 +1,7 @@
 {% extends "osr-style/pages/based/based.html" %}
 {% block title %}{{_("关注")}}-{% endblock %}
 {% block content %}
-<div id="app" class="row osr-page">
+<div id="app" class="row osr-page" v-cloak>
     <section class="osr-panel">
         <div class="col-sm-9">
             {% include 'osr-style/pages/user/_user_info.html' %}
@@ -9,14 +9,14 @@
                 <ul class="nav nav-tabs">
                     <li id="head_li_followed_user">
                         <a data-toggle="tab" class="osr-pointer" v-on:click="get_related_users('followed_user',1,'')">
-                            <span v-if="!is_myself">{{_("Ta的关注")}}</span>
-                            <span v-else>{{_("关注")}}</span>
+                            <span   v-if="!is_myself">{{_("Ta的关注")}}</span>
+                            <span  v-else>{{_("关注")}}</span>
                         </a>
                     </li>
                     <li id="head_li_fans">
                         <a data-toggle="tab" class="osr-pointer" v-on:click="get_related_users('fans',1,'')">
-                            <span v-if="!is_myself">{{_("Ta的粉丝")}}</span>
-                            <span v-else>{{_("粉丝")}}</span>
+                            <span   v-if="!is_myself">{{_("Ta的粉丝")}}</span>
+                            <span  v-else>{{_("粉丝")}}</span>
                         </a>
                     </li>
                 </ul>
@@ -33,8 +33,8 @@
                             <a class="name" :href="'/user?id='+follow_user._id">
                                 {[follow_user.username]}
                             </a>
-                            <span v-if="follow_user.gender=='m'" class="fa fa-mars osr-fa-gender-m" ></span>
-                            <span v-if="follow_user.gender=='f'" class="fa fa-venus osr-fa-gender-f"></span>
+                            <span   v-if="follow_user.gender=='m'" class="fa fa-mars osr-fa-gender-m" ></span>
+                            <span   v-if="follow_user.gender=='f'" class="fa fa-venus osr-fa-gender-f"></span>
                             <div class="meta">
                                 <a :href="'/user/follow?t=followed_user&id='+follow_user._id">
                                     {[follow_user.follow.follow_user_num]}{{_("关注")}} >&nbsp;|&nbsp;
@@ -44,11 +44,11 @@
                                 </a>
                             </div>
                         </div>
-                        <button v-if="type!='fans' || follow_user.follow.current_following" v-on:click="unfollowed(follow_user._id)"
+                        <button   v-if="type!='fans' || follow_user.follow.current_following" v-on:click="unfollowed(follow_user._id)"
                                 class="btn btn-info osr-pointer pull-right">
                             {{_("取消关注")}}
                         </button>
-                        <button v-else class="btn btn-success osr-pointer pull-right" v-on:click="follow(follow_user._id)">
+                        <button  v-else class="btn btn-success osr-pointer pull-right" v-on:click="follow(follow_user._id)">
                             <i class="fa fa-plus "></i> {{_("关注")}}
                         </button>
                     </div>
@@ -58,13 +58,13 @@
 
              <!-- m页面导航-->
             <ul class="pager col-sm-12">
-                <li v-if="pages.last < pages.current_page && pages.last>0" class="previous">
+                <li   v-if="pages.last < pages.current_page && pages.last>0" class="previous">
                     <a v-on:click="get_related_users(type, pages.last, keyword)" class="osr-pointer">
                         {{_("上一页")}}
                     </a>
                 </li>
                  <span class="text-center osr-text">{{_('第{[user_related_users.current_page]}页/共{[user_related_users.page_total]}页')}}</span>
-                <li v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
+                <li   v-if="pages.next > pages.current_page  && pages.next<=pages.page_total" class="next">
                     <a v-on:click="get_related_users(type, pages.next, keyword)" class="osr-pointer">
                         {{_("下一页")}}
                     </a>

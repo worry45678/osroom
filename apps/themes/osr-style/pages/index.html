@@ -1,7 +1,7 @@
 {% extends "osr-style/pages/based/based.html" %}
 {% block title %}{{_("DEMO")}}-{% endblock %}
 {% block content %}
-<div id="app">
+<div id="app" v-cloak>
     <div class="row osr-page">
         <section class="osr-panel">
             <div class="col-md-8">
@@ -13,16 +13,16 @@
                     <!--</ol>-->
                     <!-- 轮播（Carousel）项目 -->
                     <div class="carousel-inner">
-                        <a v-if="index==0" class="item active" :href="show_img.link" v-for="(show_img,index) in carousel">
+                        <a  v-if="index==0" class="item active" :href="show_img.link" v-for="(show_img,index) in carousel">
                             <img class="osr-carousel-img" :src="show_img.url" alt="show_img.title">
                             <div class="osr-carousel-caption carousel-caption" v-html="show_img.text_html"></div>
-                            <div v-if="show_img.title" class="img-title">{[show_img.title]}</div>
+                            <div  v-if="show_img.title" class="img-title">{[show_img.title]}</div>
                         </a>
 
-                        <a v-if="index!=0" class="item" :href="show_img.link" v-for="(show_img,index) in carousel">
+                        <a  v-if="index!=0" class="item" :href="show_img.link" v-for="(show_img,index) in carousel">
                             <img class="osr-carousel-img" :src="show_img.url" alt="show_img.title">
                             <div class="osr-carousel-caption carousel-caption" v-html="show_img.text_html"></div>
-                            <div v-if="show_img.title" class="img-title">{[show_img.title]}</div>
+                            <div  v-if="show_img.title" class="img-title">{[show_img.title]}</div>
                         </a>
 
 

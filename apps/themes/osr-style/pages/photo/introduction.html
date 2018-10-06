@@ -1,7 +1,7 @@
 {% extends "osr-style/pages/based/based.html" %}
 {% block title %}{{_("瞄下")}}-{% endblock %}
 {% block content %}
-<div id="app" class="row osr-edit-page">
+<div id="app" class="row osr-edit-page" v-cloak>
     <section class="osr-panel article">
         <!-- 文章头-->
         <h3>
@@ -33,7 +33,7 @@
 
             <!--文集-->
             <div class="category">
-                <a v-if="photo.category">
+                <a  v-if="photo.category">
                     <span  class="fa fa-folder-o">
                       {[photo.category]}
                     </span>
@@ -50,7 +50,7 @@
             </div>
 
             <!--作者信息-->
-            <div v-if="photo.user" class="author box">
+            <div  v-if="photo.user" class="author box">
                 <a class="avatar" :href="'/user?id='+photo.user._id">
                     <img width="48px" height="48px" class="osr-img-circle-b" v-bind:src="photo.user.avatar_url.url" alt="{{_('头像')}}">
                 </a>
@@ -59,8 +59,8 @@
                     <a class="name" :href="'/user?id='+photo.user._id">
                         {[photo.user.username]}
                     </a>
-                    <span v-if="photo.user.gender=='m'" class="fa fa-mars osr-fa-gender-m" ></span>
-                    <span v-if="photo.user.gender=='f'" class="fa fa-venus osr-fa-gender-f"></span>
+                    <span  v-if="photo.user.gender=='m'" class="fa fa-mars osr-fa-gender-m" ></span>
+                    <span  v-if="photo.user.gender=='f'" class="fa fa-venus osr-fa-gender-f"></span>
                     <div class="meta">
                        <a :href="'/user/follow?t=followed_user&id='+photo.user._id">
                             {[photo.user.follow.follow_user_num]}{{_("关注")}} >&nbsp;|&nbsp;
@@ -70,10 +70,10 @@
                         </a>
                     </div>
                 </div>
-                 <button v-if="photo.user.follow.current_following" v-on:click="unfollowed(photo.user_id)" class="btn osr-btn btn-info pull-right">
+                 <button  v-if="photo.user.follow.current_following" v-on:click="unfollowed(photo.user_id)" class="btn osr-btn btn-info pull-right">
                      {{_("取消关注")}}
                  </button>
-                <button v-else v-on:click="follow(photo.user_id)" class="btn osr-btn btn-success pull-right">
+                <button  v-else v-on:click="follow(photo.user_id)" class="btn osr-btn btn-success pull-right">
                      <i class="fa fa-plus"></i> {{_("关注")}}
                  </button>
                  <div v-fi="photo.user.introduction" class="brief-info">

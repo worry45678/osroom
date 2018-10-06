@@ -3,25 +3,25 @@
          <div class="form-group form-inline">
             <label class="control-label">{{_('性别')}}&nbsp;</label>
             <div class="radio radio-success">
-                <input v-if="user_profile.gender=='m'" id="m" class="form-radio-input" type="radio" name="gender"
+                <input  v-if="user_profile.gender=='m'" id="m" class="form-radio-input" type="radio" name="gender"
                        v-model="user_profile.gender" value="m" checked>
-                <input v-else id="m" class="form-radio-input" type="radio" name="gender"
+                <input  v-else id="m" class="form-radio-input" type="radio" name="gender"
                        v-model="user_profile.gender" value="m">
                 <label class="form-radio-label" for="m"> {{_("男")}} </label>
             </div>
             &nbsp;&nbsp;
             <div class="radio radio-success">
-                <input v-if="user_profile.gender=='f'" id="f" class="form-radio-input" type="radio" name="gender"
+                <input  v-if="user_profile.gender=='f'" id="f" class="form-radio-input" type="radio" name="gender"
                        v-model="user_profile.gender" value="f" checked>
-                <input v-else id="f" class="form-radio-input" type="radio" name="gender"
+                <input  v-else id="f" class="form-radio-input" type="radio" name="gender"
                        v-model="user_profile.gender" value="f">
                 <label class="form-radio-label" for="f"> {{_("女")}} </label>
             </div>
              &nbsp;&nbsp;
             <div class="radio radio-success">
-                <input v-if="user_profile.gender!='f' && user_profile.gender!='m'" id="secret" class="form-radio-input" type="radio" name="gender"
+                <input  v-if="user_profile.gender!='f' && user_profile.gender!='m'" id="secret" class="form-radio-input" type="radio" name="gender"
                        v-model="user_profile.gender" value="secret" checked>
-                <input v-else id="secret" class="form-radio-input" type="radio" name="gender"
+                <input  v-else id="secret" class="form-radio-input" type="radio" name="gender"
                        v-model="user_profile.gender" value="secret">
                 <label class="form-radio-label" for="secret"> {{_("保密")}} </label>
             </div>
