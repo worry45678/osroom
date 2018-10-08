@@ -71,7 +71,10 @@ class PluginManager():
             freed = False
             # 如果插件存在, 并标记为删除，那就删除插件文件
             if current_plug and "is_deleted" in current_plug and current_plug["is_deleted"]:
-                shutil.rmtree(plug_path)
+                try:
+                    shutil.rmtree(plug_path)
+                except:
+                    pass
                 freed = True
 
             if is_import or (current_plug and current_plug["error"]):
