@@ -1,6 +1,5 @@
 # -*-coding:utf-8-*-
 from importlib import import_module
-
 from flask import Blueprint
 from apps.configs.sys_config import ADMIN_TEMPLATE_FOLDER, THEME_TEMPLATE_FOLDER, API_URL_PREFIX, ADMIN_URL_PREFIX, \
     STATIC_PATH, STATIC_URL_PREFIX, OPEN_API_URL_PREFIX

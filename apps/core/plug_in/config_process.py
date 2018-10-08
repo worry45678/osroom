@@ -34,7 +34,8 @@ def import_plugin_config(plugin_name, config):
                                                  "value_type": v["value_type"],
                                                  "value":v["value"],
                                                  "reactivate":v["reactivate"],
-                                                 "info":v["info"]
+                                                 "info":v["info"],
+                                                 "update_time":time.time()
                                                  }
                                                 )
         elif r and r["update_time"] < current_time:
