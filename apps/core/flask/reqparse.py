@@ -6,7 +6,6 @@ __author__ = "Allen Woo"
 class ArgVerify():
 
     def required(self, **kwargs):
-
         for reqarg in kwargs.get("reqargs"):
             if not reqarg[1]:
                 data = {'msg': gettext('The "{}" cannot be empty').format(reqarg[0]),

@@ -4,6 +4,7 @@ from importlib import import_module
 from flask import Blueprint
 from apps.configs.sys_config import ADMIN_TEMPLATE_FOLDER, THEME_TEMPLATE_FOLDER, API_URL_PREFIX, ADMIN_URL_PREFIX, \
     STATIC_PATH, STATIC_URL_PREFIX, OPEN_API_URL_PREFIX
+from apps.core.plugins_blueprint import plugins_routing_moudel
 
 __author__ = 'Allen Woo'
 
@@ -51,6 +52,7 @@ routing_moudel =[
     {"from":"apps.modules.search.apis", "import":["search"]}
 ]
 
+routing_moudel.extend(plugins_routing_moudel)
 for rout_m in routing_moudel:
     for im in rout_m["import"]:
         moudel = "{}.{}".format(rout_m["from"], im)
