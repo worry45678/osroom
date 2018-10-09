@@ -51,8 +51,12 @@ routing_moudel =[
     {"from":"apps.modules.search.apis", "import":["search"]}
 ]
 
+
 routing_moudel.extend(plugins_routing_moudel)
 for rout_m in routing_moudel:
     for im in rout_m["import"]:
         moudel = "{}.{}".format(rout_m["from"], im)
-        import_module(moudel)
+        try:
+            import_module(moudel)
+        except:
+            pass
