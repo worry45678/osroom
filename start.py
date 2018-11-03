@@ -24,6 +24,7 @@ mdb_web = PyMongo()
 mdb_sys = PyMongo()
 mdb_user = PyMongo()
 db_init = 2
+print(database.MONGO_WEB_URI)
 while db_init:
     mdb_web.init_app(config_prefix='MONGO_WEB', db_config=database.MONGO_WEB_URI)
     mdb_sys.init_app(config_prefix='MONGO_SYS', db_config=database.MONGO_SYS_URI)
