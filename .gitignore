@@ -22,9 +22,9 @@ venv3/
 upload_temp/
 
 # theme
-*/themes/*
-!*/themes/osr-style
-!*/themes/robots.txt
+#*/themes/*
+#!*/themes/osr-style
+#!*/themes/robots.txt
 
 # config
 config.py
