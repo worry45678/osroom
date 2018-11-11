@@ -175,7 +175,7 @@ def push_to_db(mdb_sys,local_config = None, now_version=None):
     # 更新主机信息
 
     host_version = mdb_sys.db.sys_host.find_one({"type":"web", "host_info.local_ip":host_info["local_ip"]})
-    print(host_version.items())
+    #print(host_version.items())
     up_version = {"conf_version": now_version, "switch_conf_version": None}
     if host_version:
         up_version["host_info"] = host_version["host_info"]

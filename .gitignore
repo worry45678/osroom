@@ -7,6 +7,8 @@ log/
 logs/
 venv/
 venv3/
+share/
+nohup.out
 
 # static dir
 */static/media/
@@ -68,6 +70,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+bin/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
