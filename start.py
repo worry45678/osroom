@@ -1,6 +1,6 @@
 #-*-coding:utf-8-*-
 import sys
-from signal import signal, SIGCHLD, SIG_IGN
+import platform
 from apps.configs.config import CONFIG
 from apps.core.db.config_mdb import DatabaseConfig
 from apps.core.utils.sys_tool import update_pylib, add_user as add_user_process
@@ -36,6 +36,7 @@ while db_init:
 # 更新配置文件
 from apps.core.flask.update_config_file import update_config_file
 print(" * Update and sync config.py")
+
 r = update_config_file(mdb_sys=mdb_sys)
 if not r:
     print("[Error] Update profile error, check log sys_start.log")
@@ -56,8 +57,12 @@ init_core_module(app)
 module_import(MODULES)
 manager = Manager(app)
 if not "--debug" in sys.argv and not "-D" in sys.argv:
-    print(" * Signal:(SIGCHLD, SIG_IGN).Prevent child processes from becoming [Defunct processes].(Do not need to comment out)")
-    signal(SIGCHLD, SIG_IGN)
+    if platform.system() != 'Windows':
+        from signal import signal, SIGCHLD, SIG_IGN
+        print(" * Signal:(SIGCHLD, SIG_IGN).Prevent child processes from becoming [Defunct processes].(Do not need to comment out)")
+        signal(SIGCHLD, SIG_IGN)
+    else:
+        print(" * Signal: It's Windows system. Pass ")
 
 @manager.command
 def add_user():

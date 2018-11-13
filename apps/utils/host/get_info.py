@@ -1,7 +1,7 @@
 # -*-coding:utf-8-*-
 import socket
 
-import pwd
+
 
 import os
 
@@ -19,6 +19,7 @@ def get_host_info(ifname='eth0'):
     finally:
         s.close()
     try:
+        import pwd
         username = pwd.getpwuid(os.getuid())[0]
     except:
         username = ""
