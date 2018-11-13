@@ -216,7 +216,7 @@ def update_pylib(input_venv_path = True, latest=False):
 
     s,r = subprocess.getstatusoutput("{}pip3 freeze".format(venv))
     old_reqs = r.split()
-    with open("{}/requirements.txt".format(PROJECT_PATH)) as rf:
+    with open("{}/requirements.txt".format(PROJECT_PATH), encoding='utf-8') as rf:
         new_reqs = rf.read().split()
 
     # 查找需要安装的包

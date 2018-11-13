@@ -25,7 +25,7 @@ def get_theme_readme():
     name = request.argget.all('name')
     path = "{}/{}/readme.md".format(THEME_TEMPLATE_FOLDER, name)
     if os.path.exists(path):
-        with open(path) as rf:
+        with open(path, encoding='utf-8') as rf:
             md_text = rf.read()
 
         data = {"msg":gettext("Get success"), "msg_type":"s", "http_status":200,
@@ -55,7 +55,7 @@ def get_themes():
         s, r = verify_theme(path, fname, fname)
         if s:
             fpath = os.path.join(path, "conf.yaml")
-            with open(fpath) as rf:
+            with open(fpath, encoding='utf-8') as rf:
                 theme_conf = yaml.load(rf)
 
                 # 每次都拷贝一次, 防止有上传新的主题:主题封面拷贝到apps/static
@@ -134,7 +134,7 @@ def upload_theme():
         # 验证通过
         # 主题配置文件
         fpath = os.path.join(fpath, "conf.yaml")
-        with open(fpath) as rf:
+        with open(fpath, encoding='utf-8') as rf:
             theme_conf = yaml.load(rf)
             # 主题封面拷贝到apps/static
             new_cover_dir = os.path.join(STATIC_PATH, "media/theme_cover")
@@ -165,7 +165,7 @@ def verify_theme(theme_path, theme_dirname, filename):
     # 查看主题是否有配置文件
     fpath = os.path.join(theme_path, "conf.yaml")
     if os.path.exists(fpath) and os.path.isfile(fpath):
-        with open(fpath) as rf:
+        with open(fpath, encoding='utf-8') as rf:
             theme_conf = yaml.load(rf)
             req_conf = THEME_REQUIRED_CONF.copy()
             req_conf = list(set(req_conf).difference(set(theme_conf.keys())))
@@ -244,7 +244,7 @@ def delete_theme():
             fpath = os.path.join(theme_path, "conf.yaml")
             theme_conf = None
             if os.path.isfile(fpath) and os.path.exists(fpath):
-                with open(fpath) as rf:
+                with open(fpath, encoding='utf-8') as rf:
                     theme_conf = yaml.load(rf)
 
             shutil.rmtree(theme_path)

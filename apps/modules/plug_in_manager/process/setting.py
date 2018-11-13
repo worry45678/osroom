@@ -184,7 +184,7 @@ def install_require_package():
         data = {"msg":gettext("There is no requirement file"), "msg_type":"e", "http_status":400}
         return data
 
-    with open(plugin_req_file_path) as rf:
+    with open(plugin_req_file_path, encoding='utf-8') as rf:
         new_reqs = rf.read().split()
 
     hosts = mdb_sys.db.sys_host.find({"host_info.local_ip": {"$exists":True}})

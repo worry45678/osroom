@@ -158,7 +158,7 @@ class Transations():
         lc_msg_path = "{}/{}/LC_MESSAGES".format(self.save_path, self.lan)
         po_filepath = os.path.join(lc_msg_path, "messages.po")
         if os.path.exists(po_filepath):
-            with open(po_filepath) as rf:
+            with open(po_filepath, encoding='utf-8') as rf:
                 lines = rf.readlines()
                 wf = open("{}_last.back".format(po_filepath), "w")
                 wf.writelines(lines)
@@ -210,7 +210,7 @@ class Transations():
 
     def print_cfg(self):
 
-        with open(self.cfg_path) as rf:
+        with open(self.cfg_path, encoding='utf-8') as rf:
             print("* Extract content type[{}]:".format(os.path.split(self.cfg_path)[-1]))
             for line in rf.readlines():
                 print("    "+line.strip("\n"))
@@ -223,7 +223,7 @@ class Transations():
 
         result_path = "{}/result_msgid_text.txt".format(current_path)
         wf = open(result_path, "w")
-        with open(po_filepath) as rf:
+        with open(po_filepath, encoding='utf-8') as rf:
             last_l = ""
             lines = rf.readlines()
             lines_num = len(lines)
@@ -275,7 +275,7 @@ class Transations():
         polines = rfp.readlines()
 
         translated_text = self.msgid_tred_file_path
-        with open(translated_text) as rf:
+        with open(translated_text, encoding='utf-8') as rf:
             last_text = ""
             for l in rf:
                 l = l.split(":::")
@@ -299,7 +299,7 @@ class Transations():
 
 
         rfp.close()
-        with open(po_filepath, "w") as wf:
+        with open(po_filepath, "w", encoding='utf-8') as wf:
             wf.writelines(polines)
 
 if __name__ == '__main__':

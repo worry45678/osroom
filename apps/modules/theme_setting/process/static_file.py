@@ -93,7 +93,7 @@ def get_static_file_content():
         data = {"msg":gettext("File not found,'{}'").format(file),
             "msg_type":"w", "http_status":404}
     else:
-        with open(file) as wf:
+        with open(file, encoding='utf-8') as wf:
             content = wf.read()
         data = {"content":content, "file_relative_path":file_path.replace(path,"").strip("/")}
     return data
@@ -116,7 +116,7 @@ def edit_static_file():
         data = {"msg":gettext("File does not exist can not be edited,'{}'").format(file),
             "msg_type":"w", "http_status":404}
     else:
-        with open(file, "w") as wf:
+        with open(file, "w", encoding='utf-8') as wf:
             wf.write(content)
 
         data = {"msg":gettext("Saved successfully"),

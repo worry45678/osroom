@@ -52,7 +52,7 @@ def sys_log():
         rf.close()
         logs = []
         n = 1
-        with open(local_file) as f:
+        with open(local_file, encoding='utf-8') as f:
             for line in f:
                 if n > (page-1)*pre:
                     logs.append(line)

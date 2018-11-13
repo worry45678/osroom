@@ -11,7 +11,7 @@ def render_absolute_path_template(path, **context):
     :param context:
     :return:
     '''
-    with open(path) as rhtml:
+    with open(path, encoding='utf-8') as rhtml:
         source = rhtml.read()
     return render_template_string(source=source, **context)
 

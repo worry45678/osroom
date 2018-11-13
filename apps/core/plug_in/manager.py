@@ -61,7 +61,7 @@ class PluginManager():
 
         # 读取yaml配置
         fpath = os.path.join(plug_path, "conf.yaml")
-        with open(fpath) as rf:
+        with open(fpath, encoding='utf-8') as rf:
             # 读取插件配置文件
             plug_conf = yaml.load(rf)
             hook_name = plug_conf["hook_name"]
@@ -219,7 +219,7 @@ def verify_plugin(plugin_path):
 
     conf_path = os.path.join(plugin_path, "conf.yaml")
     if os.path.exists(conf_path) and os.path.isfile(conf_path):
-        with open(conf_path) as rf:
+        with open(conf_path, encoding='utf-8') as rf:
             plug_conf = yaml.load(rf)
             req_conf = PLUG_IN_REQUIRED_CONF.copy()
             req_conf = list(set(req_conf).difference(set(plug_conf.keys())))
@@ -232,7 +232,7 @@ def verify_plugin(plugin_path):
 
         startup_file = os.path.join(plugin_path, plug_conf["startup_file_name"])
         func_main_exists = False
-        with open(startup_file) as rf:
+        with open(startup_file, encoding='utf-8') as rf:
             for line in rf.readlines():
                 if re.search(r"def\s+main\(.+\)\s*:$", line.strip()):
                     func_main_exists = True

@@ -56,7 +56,7 @@ def add_page():
 
         if not os.path.exists(path):
             os.makedirs(path)
-        with open(file, "w") as wf:
+        with open(file, "w", encoding='utf-8') as wf:
             wf.write(content)
 
         # 记录
